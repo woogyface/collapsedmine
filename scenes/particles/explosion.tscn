@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://0yah11bbecm1"]
+
+[ext_resource type="Texture2D" uid="uid://bvwhxbshxlm33" path="res://assets/particles/fire_01.png" id="1_3ajkw"]
+[ext_resource type="Script" uid="uid://dthnskraucgtp" path="res://scenes/particles/explosion.gd" id="2_02mh3"]
+[ext_resource type="Texture2D" uid="uid://cdvc0mlyst5lf" path="res://assets/particles/smoke_01.png" id="2_uommb"]
+
+[sub_resource type="Gradient" id="Gradient_02mh3"]
+offsets = PackedFloat32Array(0, 0.710407, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.709804, 0.321569, 0.0196078, 0.47451, 0.592157, 0.0431373, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_nnsi5"]
+colors = PackedColorArray(0.277528, 0.277528, 0.277528, 1, 1, 1, 1, 0)
+
+[node name="Explosion" type="CPUParticles2D"]
+emitting = false
+texture = ExtResource("1_3ajkw")
+lifetime = 0.1
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+color_ramp = SubResource("Gradient_02mh3")
+script = ExtResource("2_02mh3")
+
+[node name="Smoke" type="CPUParticles2D" parent="."]
+emitting = false
+texture = ExtResource("2_uommb")
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(1, -100)
+spread = 180.0
+gravity = Vector2(0, -100)
+initial_velocity_min = 171.64
+initial_velocity_max = 171.64
+color_ramp = SubResource("Gradient_nnsi5")

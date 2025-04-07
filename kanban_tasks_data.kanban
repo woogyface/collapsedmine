@@ -1,0 +1,93 @@
+{
+	"categories": [
+		{
+			"uuid": "1d8c7789-cb72-4ef7-9a51-6efe8cb13ec0",
+			"title": "Task",
+			"color": "70bafa"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "82b35c98-3f38-48ae-bf50-4a40c2310473",
+			"title": "Todo",
+			"tasks": [
+				"c3adad6c-188c-4cae-ab11-564aa0abb056",
+				"d1ee32f2-a625-4b76-8cca-e84e4729e5d6"
+			]
+		},
+		{
+			"uuid": "1d01e010-b072-4f7e-a519-927180b19fa3",
+			"title": "Doing",
+			"tasks": [
+				"c56e5ba0-129a-4bad-b15b-9be22c726cd3"
+			]
+		},
+		{
+			"uuid": "81a42d0f-6584-4a14-bbf2-2d7f6622d128",
+			"title": "Done",
+			"tasks": [
+				"7c4b6ab1-6793-4712-bcd9-66ca01f926b4"
+			]
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "d1ee32f2-a625-4b76-8cca-e84e4729e5d6",
+			"title": "Flares",
+			"description": "",
+			"category": "1d8c7789-cb72-4ef7-9a51-6efe8cb13ec0",
+			"steps": []
+		},
+		{
+			"uuid": "c56e5ba0-129a-4bad-b15b-9be22c726cd3",
+			"title": "Rescue People",
+			"description": "",
+			"category": "1d8c7789-cb72-4ef7-9a51-6efe8cb13ec0",
+			"steps": []
+		},
+		{
+			"uuid": "c3adad6c-188c-4cae-ab11-564aa0abb056",
+			"title": "Upgrades",
+			"description": "",
+			"category": "1d8c7789-cb72-4ef7-9a51-6efe8cb13ec0",
+			"steps": [
+				{
+					"details": "Batteries",
+					"done": false
+				},
+				{
+					"details": "Flares amount",
+					"done": false
+				},
+				{
+					"details": "Speed",
+					"done": false
+				},
+				{
+					"details": "light range",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "7c4b6ab1-6793-4712-bcd9-66ca01f926b4",
+			"title": "flip player horizontally",
+			"description": "",
+			"category": "1d8c7789-cb72-4ef7-9a51-6efe8cb13ec0",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"82b35c98-3f38-48ae-bf50-4a40c2310473"
+			],
+			[
+				"1d01e010-b072-4f7e-a519-927180b19fa3"
+			],
+			[
+				"81a42d0f-6584-4a14-bbf2-2d7f6622d128"
+			]
+		]
+	}
+}

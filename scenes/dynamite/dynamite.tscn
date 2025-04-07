@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dq45gqgnsqobe"]
+
+[ext_resource type="Script" uid="uid://43wkrpyd2n3d" path="res://scenes/dynamite/dynamite.gd" id="1_ob7gi"]
+[ext_resource type="Texture2D" uid="uid://b4hu1wifkhe4r" path="res://assets/dynamite.png" id="1_w65ha"]
+[ext_resource type="PackedScene" uid="uid://0yah11bbecm1" path="res://scenes/particles/explosion.tscn" id="3_fx4ke"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ob7gi"]
+size = Vector2(18, 80)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ob7gi"]
+radius = 173.566
+
+[node name="Dynamite" type="RigidBody2D"]
+collision_layer = 4
+script = ExtResource("1_ob7gi")
+
+[node name="Dynamite" type="Sprite2D" parent="."]
+texture = ExtResource("1_w65ha")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_ob7gi")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="ExplodingArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplodingArea"]
+shape = SubResource("CircleShape2D_ob7gi")
+
+[node name="Explosion" parent="." instance=ExtResource("3_fx4ke")]
+unique_name_in_owner = true

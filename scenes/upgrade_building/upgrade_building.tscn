@@ -1,0 +1,145 @@
+[gd_scene load_steps=8 format=4 uid="uid://dpj1ggu0cs7oo"]
+
+[ext_resource type="Script" uid="uid://j2ctht26rjt" path="res://scenes/upgrade_building/upgrade_building.gd" id="1_pydxe"]
+[ext_resource type="Texture2D" uid="uid://rdkhl1ulj7tj" path="res://assets/buildings/spritesheet.png" id="1_xqana"]
+[ext_resource type="PackedScene" uid="uid://xyxh7emk4qi2" path="res://scenes/upgrade_gui/upgrade_gui.tscn" id="3_g2qkf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pydxe"]
+texture = ExtResource("1_xqana")
+texture_region_size = Vector2i(70, 70)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+0:6/0 = 0
+0:7/0 = 0
+0:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_g2qkf"]
+tile_size = Vector2i(70, 70)
+sources/0 = SubResource("TileSetAtlasSource_pydxe")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqana"]
+size = Vector2(420, 201.5)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g2qkf"]
+viewport_path = NodePath("UpgradeGUI")
+
+[node name="UpgradeBuilding" type="Node2D"]
+script = ExtResource("1_pydxe")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAP3/AAAGAAEAAAAAAP7/AAAGAAMAAAAAAP//AAAGAAYAAAAFAP//AAAGAAQAAAAEAP//AAAGAAUAAAADAP//AAAGAAUAAAACAP//AAAGAAUAAAABAP//AAAGAAUAAAABAP3/AAAGAAAAAAACAP3/AAAGAAAAAAADAP3/AAAGAAAAAAAEAP3/AAAGAAAAAAAEAP7/AAAGAAgAAAADAP7/AAAGAAkAAAACAP7/AAAGAAgAAAABAP7/AAAGAAkAAAAFAP3/AAAFAAkAAAAFAP7/AAAGAAIAAAAAAPv/AAACAAkAAAABAPv/AAACAAkAAAACAPv/AAACAAkAAAADAPv/AAACAAkAAAAEAPv/AAACAAkAAAAFAPv/AAACAAkAAAAGAPv/AAADAAAAAAD///v/AAACAAgAAAAAAPz/AAADAAIAAAABAPz/AAADAAIAAAACAPz/AAADAAIAAAADAPz/AAADAAIAAAAEAPz/AAADAAIAAAAFAPz/AAADAAIAAAD///z/AAADAAEAAAAGAPz/AAADAAMAAAA=")
+tile_set = SubResource("TileSet_g2qkf")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAABAP7/AAACAAEAAAAEAP7/AAAIAAcAAAAEAP//AAAIAAgAAAA=")
+tile_set = SubResource("TileSet_g2qkf")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(210, -101.25)
+shape = SubResource("RectangleShape2D_xqana")
+
+[node name="UpgradeGUI" parent="." instance=ExtResource("3_g2qkf")]
+size = Vector2i(412, 229)
+
+[node name="UpgradeGUITexture" type="TextureRect" parent="."]
+offset_left = 4.0
+offset_top = -463.0
+offset_right = 416.0
+offset_bottom = -234.0
+texture = SubResource("ViewportTexture_g2qkf")

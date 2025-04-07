@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://f730jj0s4q6j"]
+
+[ext_resource type="Script" uid="uid://cteuru6qyxfax" path="res://scenes/upgrades/battery/battery.gd" id="1_lpy1f"]
+
+[node name="Battery" type="Node"]
+script = ExtResource("1_lpy1f")

@@ -1,0 +1,311 @@
+[gd_scene load_steps=16 format=3 uid="uid://dleo4a84w16s6"]
+
+[ext_resource type="Texture2D" uid="uid://bq3xj480scrqk" path="res://assets/humans/Skin/Tint 1/tint1_hand.png" id="1_7mxbf"]
+[ext_resource type="Script" uid="uid://wxtihe1wbgea" path="res://scenes/human/human.gd" id="1_dpjn5"]
+[ext_resource type="Texture2D" uid="uid://bcftfory3g8x" path="res://assets/humans/Shirts/Blue/blueArm_long.png" id="2_dpjn5"]
+[ext_resource type="Texture2D" uid="uid://rr1snibx1fgj" path="res://assets/humans/Shirts/Blue/blueShirt3.png" id="3_tqet6"]
+[ext_resource type="Texture2D" uid="uid://dyq2n7bd0d4gk" path="res://assets/humans/Skin/Tint 1/tint1_head.png" id="4_f1x66"]
+[ext_resource type="Texture2D" uid="uid://b5x5m7to2q7g3" path="res://assets/humans/Face/Completes/face3.png" id="5_ts0cl"]
+[ext_resource type="Texture2D" uid="uid://bx1m8uhe7g5m5" path="res://assets/humans/Shoes/Black/blackShoe4.png" id="6_wkjrq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_krdpk"]
+load_path = "res://.godot/imported/pantsBlue11.png-06b1cd5bcc18b6808b787485ade18b4a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7mxbf"]
+load_path = "res://.godot/imported/pantsBlue1_long.png-656e86f9056b660f2027d5f7bda5440a.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7mxbf"]
+radius = 770.58
+
+[sub_resource type="Animation" id="Animation_f1x66"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Pelvis/Arm_Left:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.702082]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Pelvis/Arm_Right:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.734869]
+}
+
+[sub_resource type="Animation" id="Animation_ts0cl"]
+resource_name = "happy"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Pelvis/Arm_Right:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1.36237, -0.25, 0, 0.1, 0, 0.755863, -0.1, 0, 0.1, 0, 1.36237, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Pelvis/Arm_Left:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-1.40769, -0.25, 0, 0.1, 0, -0.496892, -0.1, 0, 0.1, 0, -1.40769, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_dpjn5"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Pelvis/Arm_Right:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(1, 0, 1),
+"points": PackedFloat32Array(-0.734869, 0, 0, 0, 0, -0.653158, -0.25, 0, 0.25, 0, -0.735, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Pelvis/Arm_Left:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(1, 3, 1),
+"points": PackedFloat32Array(0.677, 0, 0, 0, 0, 0.585, -0.167, 0, 0.167, 0, 0.73, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="Animation" id="Animation_tqet6"]
+resource_name = "raise_arms"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Pelvis/Arm_Left:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.702082, -1.40769]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Pelvis/Arm_Right:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.734869, 1.36237]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1x66"]
+_data = {
+&"RESET": SubResource("Animation_f1x66"),
+&"happy": SubResource("Animation_ts0cl"),
+&"idle": SubResource("Animation_dpjn5"),
+&"raise_arms": SubResource("Animation_tqet6")
+}
+
+[node name="Human" type="Node2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_dpjn5")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="Pelvis" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="Body" type="Sprite2D" parent="Skeleton2D/Pelvis"]
+position = Vector2(0, -74)
+texture = ExtResource("3_tqet6")
+
+[node name="Legs" type="Sprite2D" parent="Skeleton2D/Pelvis/Body"]
+position = Vector2(0, 85.5)
+texture = SubResource("CompressedTexture2D_krdpk")
+
+[node name="Neck" type="Bone2D" parent="Skeleton2D/Pelvis"]
+position = Vector2(0, -137)
+rotation = -1.5708
+rest = Transform2D(-4.37114e-08, -1, 1, -4.37114e-08, 0, -137)
+auto_calculate_length_and_angle = false
+length = 71.297
+bone_angle = 0.0
+
+[node name="Head" type="Sprite2D" parent="Skeleton2D/Pelvis/Neck"]
+position = Vector2(1, -1)
+rotation = 1.5708
+texture = ExtResource("4_f1x66")
+offset = Vector2(-0.175003, -77.83)
+
+[node name="Face" type="Sprite2D" parent="Skeleton2D/Pelvis/Neck/Head"]
+z_index = 1
+position = Vector2(0, -74)
+texture = ExtResource("5_ts0cl")
+
+[node name="Arm_Left" type="Bone2D" parent="Skeleton2D/Pelvis"]
+position = Vector2(60, -117)
+rotation = 0.702082
+rest = Transform2D(1, 0, 0, 1, 60, -117)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="Arm_Left" type="Sprite2D" parent="Skeleton2D/Pelvis/Arm_Left"]
+z_index = -1
+position = Vector2(-1, -1)
+texture = ExtResource("2_dpjn5")
+offset = Vector2(77, 36)
+
+[node name="Hand_Left" type="Bone2D" parent="Skeleton2D/Pelvis/Arm_Left"]
+position = Vector2(147, 91)
+rotation = 0.708012
+rest = Transform2D(0.759656, 0.650325, -0.650325, 0.759656, 147, 91)
+auto_calculate_length_and_angle = false
+length = 25.216
+bone_angle = 0.0
+
+[node name="Hand_Left" type="Sprite2D" parent="Skeleton2D/Pelvis/Arm_Left/Hand_Left"]
+z_index = -2
+position = Vector2(-1.40998, -0.10933)
+rotation = -0.708012
+texture = ExtResource("1_7mxbf")
+offset = Vector2(10, 16)
+
+[node name="Arm_Right" type="Bone2D" parent="Skeleton2D/Pelvis"]
+position = Vector2(-60, -117)
+rotation = -0.734869
+rest = Transform2D(1, 0, 0, 1, -60, -117)
+auto_calculate_length_and_angle = false
+length = 172.887
+bone_angle = 0.0
+
+[node name="Arm_Right" type="Sprite2D" parent="Skeleton2D/Pelvis/Arm_Right"]
+z_index = -1
+position = Vector2(-2, -1)
+texture = ExtResource("2_dpjn5")
+offset = Vector2(-74, 36)
+flip_h = true
+
+[node name="Hand_Right" type="Bone2D" parent="Skeleton2D/Pelvis/Arm_Right"]
+position = Vector2(-147, 91)
+rotation = 1.5708
+rest = Transform2D(-4.37114e-08, 1, -1, -4.37114e-08, -147, 91)
+auto_calculate_length_and_angle = false
+length = 25.216
+bone_angle = 40.5661
+
+[node name="Hand_Right" type="Sprite2D" parent="Skeleton2D/Pelvis/Arm_Right/Hand_Right"]
+z_index = -2
+position = Vector2(-2, 1)
+rotation = -1.5708
+texture = ExtResource("1_7mxbf")
+offset = Vector2(-8, 17)
+flip_h = true
+
+[node name="Leg_Left" type="Bone2D" parent="Skeleton2D/Pelvis"]
+position = Vector2(36, 14)
+rest = Transform2D(1, 0, 0, 1, 36, 14)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="Leg_Left" type="Sprite2D" parent="Skeleton2D/Pelvis/Leg_Left"]
+z_index = -1
+position = Vector2(-1, -2)
+texture = SubResource("CompressedTexture2D_7mxbf")
+offset = Vector2(17, 72)
+
+[node name="Foot_Left" type="Bone2D" parent="Skeleton2D/Pelvis/Leg_Left"]
+position = Vector2(37, 146)
+rotation = 0.73771
+scale = Vector2(2.28, 2.28)
+rest = Transform2D(1.68722, 1.53352, -1.53352, 1.68722, 37, 146)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="Foot_Left" type="Sprite2D" parent="Skeleton2D/Pelvis/Leg_Left/Foot_Left"]
+z_index = -2
+position = Vector2(-1.10507, 0.0884421)
+rotation = -0.73771
+scale = Vector2(0.438597, 0.438597)
+texture = ExtResource("6_wkjrq")
+offset = Vector2(11.0001, 17.5454)
+
+[node name="Leg_Right" type="Bone2D" parent="Skeleton2D/Pelvis"]
+position = Vector2(-36, 14)
+rotation = 0.0102037
+rest = Transform2D(1, 0, 0, 1, -36, 14)
+auto_calculate_length_and_angle = false
+length = 150.615
+bone_angle = 104.221
+
+[node name="Leg_Right" type="Sprite2D" parent="Skeleton2D/Pelvis/Leg_Right"]
+z_index = -1
+position = Vector2(0, -1)
+texture = SubResource("CompressedTexture2D_7mxbf")
+offset = Vector2(-16, 71)
+flip_h = true
+
+[node name="Foot_Right" type="Bone2D" parent="Skeleton2D/Pelvis/Leg_Right"]
+position = Vector2(-37, 146)
+rotation = 1.55831
+scale = Vector2(2.28, 2.28)
+rest = Transform2D(-0.0228228, 2.27989, -2.27989, -0.0228228, -37, 146)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 42.2677
+
+[node name="Foot_Right" type="Sprite2D" parent="Skeleton2D/Pelvis/Leg_Right/Foot_Right"]
+z_index = -2
+position = Vector2(-0.671394, 0.644771)
+rotation = -1.58081
+scale = Vector2(0.438597, 0.438597)
+texture = ExtResource("6_wkjrq")
+offset = Vector2(-7.54533, 17.5454)
+flip_h = true
+
+[node name="RescueArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+visible = false
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RescueArea"]
+shape = SubResource("CircleShape2D_7mxbf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_f1x66")
+}
+autoplay = "idle"

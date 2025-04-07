@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://beeseg8vpcar"]
+
+[ext_resource type="Texture2D" uid="uid://jqyq84lvwdmx" path="res://assets/robot/tracks_long1.png" id="1_kk5tn"]
+[ext_resource type="Texture2D" uid="uid://do2w04ugpcgum" path="res://assets/robot/tracks_long2.png" id="2_0mev1"]
+[ext_resource type="Script" uid="uid://cjixxitjtx58r" path="res://scenes/track/track.gd" id="3_0mev1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_236c3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kk5tn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0mev1")
+}],
+"loop": true,
+"name": &"drive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kk5tn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0mev1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_syd2a"]
+radius = 33.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ccyqc"]
+radius = 33.0
+
+[node name="Track" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_236c3")
+animation = &"drive"
+script = ExtResource("3_0mev1")
+
+[node name="PinJoint2D1" type="PinJoint2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-30, 0)
+node_b = NodePath("../PhysicsWheel1")
+
+[node name="PhysicsWheel1" type="RigidBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-30, 0)
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_0mev1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PhysicsWheel1"]
+shape = SubResource("CircleShape2D_syd2a")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(15, 0)
+node_b = NodePath("../PhysicsWheel2")
+
+[node name="PhysicsWheel2" type="RigidBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(15, 0)
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_0mev1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PhysicsWheel2"]
+shape = SubResource("CircleShape2D_ccyqc")

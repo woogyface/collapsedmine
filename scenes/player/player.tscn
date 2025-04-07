@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://dn2temsd81g26"]
+
+[ext_resource type="Script" uid="uid://bujhpg0rmcpef" path="res://scenes/player/player.gd" id="1_lvxji"]
+[ext_resource type="PackedScene" uid="uid://beeseg8vpcar" path="res://scenes/track/track.tscn" id="3_gmlin"]
+[ext_resource type="Texture2D" uid="uid://b30vtr1ign4h7" path="res://assets/robot/robot_yellowBody.png" id="3_p47bc"]
+[ext_resource type="PackedScene" uid="uid://f730jj0s4q6j" path="res://scenes/upgrades/battery/battery.tscn" id="4_lvxji"]
+[ext_resource type="PackedScene" uid="uid://bmvwa1100d5fn" path="res://scenes/upgrades/launcher/launcher.tscn" id="5_p47bc"]
+[ext_resource type="Texture2D" uid="uid://cocnmgjav4dtj" path="res://assets/prop_fade_start_50.png" id="6_0owmy"]
+[ext_resource type="Texture2D" uid="uid://df35qbw5tcbnf" path="res://assets/2D_light.png" id="7_qek5x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
+size = Vector2(185, 126)
+
+[node name="Player" type="RigidBody2D"]
+collision_layer = 2
+script = ExtResource("1_lvxji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -93)
+shape = SubResource("RectangleShape2D_gmlin")
+
+[node name="Body" type="Node2D" parent="."]
+position = Vector2(0, -34)
+
+[node name="RobotBody" type="Sprite2D" parent="Body"]
+unique_name_in_owner = true
+position = Vector2(0, -58)
+texture = ExtResource("3_p47bc")
+
+[node name="TrackRight" parent="Body" instance=ExtResource("3_gmlin")]
+unique_name_in_owner = true
+position = Vector2(-48, 0)
+
+[node name="TrackLeft" parent="Body" instance=ExtResource("3_gmlin")]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(54, 0)
+
+[node name="ThrowPosition" type="Marker2D" parent="."]
+position = Vector2(0, -180)
+rotation = -4.47782
+gizmo_extents = 30.0
+
+[node name="Battery" parent="." instance=ExtResource("4_lvxji")]
+unique_name_in_owner = true
+default_charge = 15.0
+consumtion_rate = 1.0
+
+[node name="Launcher" parent="." instance=ExtResource("5_p47bc")]
+unique_name_in_owner = true
+
+[node name="Lights" type="Node2D" parent="."]
+visible = false
+
+[node name="Flashlight" type="PointLight2D" parent="Lights"]
+unique_name_in_owner = true
+position = Vector2(30, -97)
+scale = Vector2(5.64884, 5.63934)
+shadow_color = Color(1, 0, 0, 0)
+texture = ExtResource("6_0owmy")
+offset = Vector2(93.2935, 1.95058)
+
+[node name="SourroundLight" type="PointLight2D" parent="Lights"]
+position = Vector2(6, -94)
+scale = Vector2(1.76562, 1.76562)
+texture = ExtResource("7_qek5x")

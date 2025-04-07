@@ -1,0 +1,134 @@
+[gd_scene load_steps=11 format=3 uid="uid://dojt78vr3n372"]
+
+[ext_resource type="Script" uid="uid://p5k84ccj1fqt" path="res://scenes/hud/hud.gd" id="1_48c2t"]
+[ext_resource type="Texture2D" uid="uid://cvn0or5ofl1ce" path="res://assets/UI/barHorizontal_white_mid.png" id="2_mgtrf"]
+[ext_resource type="Texture2D" uid="uid://bfpvjwtwuoh44" path="res://assets/UI/squareYellow.png" id="3_mgtrf"]
+[ext_resource type="Texture2D" uid="uid://brtmdmfc1etij" path="res://assets/UI/barHorizontal_white_left.png" id="4_n56i7"]
+[ext_resource type="Texture2D" uid="uid://doiwyue333d1t" path="res://assets/UI/barHorizontal_white_right.png" id="5_mq0y1"]
+[ext_resource type="PackedScene" uid="uid://noggqb4r8tfk" path="res://scenes/win_screen/win_screen.tscn" id="6_v7mo4"]
+[ext_resource type="Texture2D" uid="uid://b4hu1wifkhe4r" path="res://assets/dynamite.png" id="7_n56i7"]
+[ext_resource type="Texture2D" uid="uid://dsqya33iwn0uj" path="res://assets/flare.png" id="8_mq0y1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_go0ap"]
+texture = ExtResource("2_mgtrf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nhd55"]
+texture = ExtResource("3_mgtrf")
+region_rect = Rect2(4, 5, 11, 16)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_48c2t")
+
+[node name="Battery" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 26)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -70.0
+offset_right = 150.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxTexture_go0ap")
+theme_override_styles/fill = SubResource("StyleBoxTexture_nhd55")
+show_percentage = false
+
+[node name="BarHorizontalWhiteLeft" type="Sprite2D" parent="Battery"]
+texture = ExtResource("4_n56i7")
+offset = Vector2(-3, 13)
+
+[node name="BarHorizontalWhiteRight" type="Sprite2D" parent="Battery"]
+position = Vector2(300, 0)
+texture = ExtResource("5_mq0y1")
+offset = Vector2(3, 13)
+
+[node name="BatteryTimeLeft" type="Label" parent="Battery"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -33.0
+offset_right = 78.0
+offset_bottom = 34.0
+grow_vertical = 2
+theme_override_constants/outline_size = 6
+text = "20s"
+vertical_alignment = 1
+
+[node name="WinScreen" parent="." instance=ExtResource("6_v7mo4")]
+visible = false
+
+[node name="Dynamite" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 489.0
+offset_top = 601.0
+offset_right = 529.0
+offset_bottom = 641.0
+
+[node name="TextureRect" type="TextureRect" parent="Dynamite"]
+offset_right = 18.0
+offset_bottom = 90.0
+rotation = -0.607675
+scale = Vector2(0.63368, 0.63368)
+texture = ExtResource("7_n56i7")
+
+[node name="Label" type="Label" parent="Dynamite"]
+offset_left = 42.0
+offset_right = 57.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 28
+text = "x"
+vertical_alignment = 1
+
+[node name="DynamiteAmount" type="Label" parent="Dynamite"]
+unique_name_in_owner = true
+offset_left = 61.0
+offset_top = 3.0
+offset_right = 77.0
+offset_bottom = 42.0
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 28
+text = "3"
+vertical_alignment = 1
+
+[node name="Flare" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 579.0
+offset_top = 601.0
+offset_right = 619.0
+offset_bottom = 641.0
+
+[node name="TextureRect" type="TextureRect" parent="Flare"]
+offset_right = 18.0
+offset_bottom = 90.0
+rotation = -0.607675
+scale = Vector2(0.63368, 0.63368)
+texture = ExtResource("8_mq0y1")
+
+[node name="Label" type="Label" parent="Flare"]
+offset_left = 42.0
+offset_right = 57.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 28
+text = "x"
+vertical_alignment = 1
+
+[node name="FlareAmount" type="Label" parent="Flare"]
+unique_name_in_owner = true
+offset_left = 61.0
+offset_top = 3.0
+offset_right = 77.0
+offset_bottom = 42.0
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 28
+text = "3"
+vertical_alignment = 1

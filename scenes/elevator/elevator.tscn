@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://ciqc3nlhh8hb4"]
+
+[ext_resource type="Texture2D" uid="uid://cygxsfv1cmxsc" path="res://assets/physics/track_crossing.png" id="1_7w7uo"]
+[ext_resource type="Texture2D" uid="uid://cvehuwp62lgik" path="res://assets/physics/elementMetal013.png" id="1_x8gua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21fob"]
+size = Vector2(352, 54)
+
+[sub_resource type="Animation" id="Animation_7w7uo"]
+resource_name = "move"
+length = 8.0
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("StaticBody2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 2, 0, 958, -2, 0, 0.25, 0),
+"times": PackedFloat32Array(1, 7)
+}
+
+[sub_resource type="Animation" id="Animation_21fob"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hadwe"]
+_data = {
+&"RESET": SubResource("Animation_21fob"),
+&"move": SubResource("Animation_7w7uo")
+}
+
+[node name="Elevator" type="Node2D"]
+
+[node name="Background" type="NinePatchRect" parent="."]
+z_index = -10
+custom_minimum_size = Vector2(0, 1000)
+offset_top = -88.0
+offset_right = 352.0
+offset_bottom = 1012.0
+texture = ExtResource("1_7w7uo")
+region_rect = Rect2(10, 10, 44, 44)
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Platform2" type="NinePatchRect" parent="StaticBody2D"]
+offset_right = 353.0
+offset_bottom = 54.0
+texture = ExtResource("1_x8gua")
+region_rect = Rect2(0, 0, 220, 70)
+patch_margin_left = 12
+patch_margin_top = 16
+patch_margin_right = 12
+patch_margin_bottom = 12
+axis_stretch_horizontal = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(176, 27)
+shape = SubResource("RectangleShape2D_21fob")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hadwe")
+}
+autoplay = "move"

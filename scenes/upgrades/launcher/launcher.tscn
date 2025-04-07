@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmvwa1100d5fn"]
+
+[ext_resource type="Script" uid="uid://cbbt0o2cxerrj" path="res://scenes/upgrades/launcher/launcher.gd" id="1_jhaaw"]
+
+[node name="DynamiteLauncher" type="Node"]
+script = ExtResource("1_jhaaw")

@@ -1,0 +1,155 @@
+[gd_scene load_steps=16 format=3 uid="uid://030nm2ixlm86"]
+
+[ext_resource type="Script" uid="uid://f4hxnne2tnma" path="res://scenes/game.gd" id="1_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://djyg4sfi6q8b5" path="res://assets/textures/bla2_albedo.png" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://dn2temsd81g26" path="res://scenes/player/player.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://cjf8chk075goi" path="res://scripts/camera_2d.gd" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://da80cg80k2iah" path="res://scripts/darkness.gd" id="3_vtaks"]
+[ext_resource type="PackedScene" uid="uid://dojt78vr3n372" path="res://scenes/hud/hud.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://dleo4a84w16s6" path="res://scenes/human/human1.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://dpj1ggu0cs7oo" path="res://scenes/upgrade_building/upgrade_building.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://ciqc3nlhh8hb4" path="res://scenes/elevator/elevator.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://cbow1v4xxqk7h" path="res://scenes/rocks/rock1.tscn" id="11_kvpfn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tnpc"]
+size = Vector2(3722, 2008)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtaks"]
+size = Vector2(286, 937)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
+size = Vector2(292, 1256)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yqjtg"]
+rough = true
+absorbent = true
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lbhrr"]
+polygon = PackedVector2Array(41, 186, -514, 364, -1135, 94, -1498, 95, -2334, -332, -3789, -516, -5209, -256, -6844, -253, -7500, -489, -7801, -752, -7814, -1538, -7316, -2141, -7539, -3072, -12639, -3505, -12757, 3024, -2317.52, 2852.57, -776, 2458, -1246, 4565, 104, 5707, 5551, 5589, 13539, 4456, 13546, 1296, 12354, -2989, 10069, -3895, 4612, -3865, 1616, -2744, 1736, -1344, 1475, -537, 2423, -647, 3542, -916, 4588, -873, 5512, -1381, 6557, -959, 7334, -897, 8790, -1087, 9664, -549, 10092, -579, 10374, -365, 10458, 260, 9946, 259, 9505, 87, 7897, 460, 6645, 127, 5593, 421, 5589, 1023, 6001, 1020, 6300, 965, 6906, 1062, 7315, 1218, 7720, 1140, 8119, 1457, 8400, 1287, 8640, 979, 9070, 712, 9809, 783, 10114, 929, 10119, 1436, 9974, 1509, 9993, 2483, 9613, 2498, 9344, 2383, 9045, 2411, 8765, 2585, 8457, 2507, 8195, 2709, 7956, 2696, 7579, 2925, 7239, 2911, 6890, 3100, 6674, 3311, 6458, 3601, 6444, 4105, 6450, 4558, 6293, 4724, 6059, 4715, 5468, 3968, 6132, 3137, 6444, 3022, 6697, 2778, 7014, 2650, 7331, 2241, 8250, 2089, 8944, 1832, 9625, 1506, 9095, 1510, 8723, 1502, 8482, 1705, 8096, 1838, 7715, 1732, 7343, 1553, 6787, 1576, 6461, 1641, 6084, 1636, 5845, 1466, 5596, 1378, 5225, 1375, 4913, 1482, 4399, 1633, 3889, 1642, 3535, 1500, 2837, 1925, 2272, 1925, 1868, 1717, 1888, 1185, 2117, 856, 2319, 1105, 2568, 1051, 2763, 1266, 3274, 1091, 3698, 1051, 4086, 1229, 4541, 1261, 5258, 985, 5258, 425, 4172, 583, 2686, -68, 2130, 61, 1572, -156, 1016, 124, 601, 245)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_0tnpc")
+
+[node name="HUD" parent="." instance=ExtResource("6_p57ef")]
+
+[node name="Darkness" type="Node" parent="."]
+script = ExtResource("3_vtaks")
+
+[node name="LevelLight" type="CanvasModulate" parent="Darkness"]
+rotation = -0.000216325
+
+[node name="Trigger" type="Area2D" parent="Darkness"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Darkness/Trigger"]
+position = Vector2(722, -458)
+shape = SubResource("RectangleShape2D_0tnpc")
+
+[node name="Inside" type="Area2D" parent="Darkness"]
+position = Vector2(2579, -156)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Darkness/Inside"]
+position = Vector2(143, -197)
+shape = SubResource("RectangleShape2D_vtaks")
+
+[node name="Outside" type="Area2D" parent="Darkness"]
+position = Vector2(-1140, 22)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Darkness/Outside"]
+position = Vector2(-140, -345)
+shape = SubResource("RectangleShape2D_kvpfn")
+
+[node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+unique_name_in_owner = true
+position = Vector2(-6639, -257)
+max_speed = 800.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_yqjtg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(41, 186, -514, 364, -1135, 94, -1498, 95, -2334, -332, -3789, -516, -5209, -256, -6844, -253, -7500, -489, -7801, -752, -7814, -1538, -7316, -2141, -7539, -3072, -12639, -3505, -12757, 3024, -2317.52, 2852.57, -776, 2458, -1246, 4565, 104, 5707, 5551, 5589, 13539, 4456, 13546, 1296, 12354, -2989, 10069, -3895, 4612, -3865, 1616, -2744, 1736, -1344, 1475, -537, 2423, -647, 3542, -916, 4588, -873, 5512, -1381, 6557, -959, 7334, -897, 8790, -1087, 9664, -549, 10092, -579, 10374, -365, 10458, 260, 9946, 259, 9505, 87, 7897, 460, 6645, 127, 5593, 421, 5589, 1023, 6001, 1020, 6300, 965, 6906, 1062, 7315, 1218, 7720, 1140, 8119, 1457, 8400, 1287, 8640, 979, 9070, 712, 9809, 783, 10114, 929, 10119, 1436, 9974, 1509, 9993, 2483, 9613, 2498, 9344, 2383, 9045, 2411, 8765, 2585, 8457, 2507, 8195, 2709, 7956, 2696, 7579, 2925, 7239, 2911, 6890, 3100, 6674, 3311, 6458, 3601, 6444, 4105, 6450, 4558, 6293, 4724, 6059, 4715, 5468, 3968, 6132, 3137, 6444, 3022, 6697, 2778, 7014, 2650, 7331, 2241, 8250, 2089, 8944, 1832, 9625, 1506, 9095, 1510, 8723, 1502, 8482, 1705, 8096, 1838, 7715, 1732, 7343, 1553, 6787, 1576, 6461, 1641, 6084, 1636, 5845, 1466, 5596, 1378, 5225, 1375, 4913, 1482, 4399, 1633, 3889, 1642, 3535, 1500, 2837, 1925, 2272, 1925, 1868, 1717, 1888, 1185, 2117, 856, 2319, 1105, 2568, 1051, 2763, 1266, 3274, 1091, 3698, 1051, 4086, 1229, 4541, 1261, 5258, 985, 5258, 425, 4172, 583, 2686, -68, 2130, 61, 1572, -156, 1016, 124, 601, 245)
+
+[node name="Background" type="Polygon2D" parent="StaticBody2D"]
+z_index = -100
+texture_repeat = 2
+color = Color(0.18359, 0.18359, 0.18359, 1)
+texture = ExtResource("1_lnu2h")
+polygon = PackedVector2Array(1363, -1066, 380, -424, -145, -17, -1102, 140, -1381, 5461, 11093, 4567, 10605, -2141)
+
+[node name="Foreground" type="Polygon2D" parent="StaticBody2D"]
+texture_repeat = 2
+texture = ExtResource("1_lnu2h")
+polygon = PackedVector2Array(41, 186, -514, 364, -1135, 94, -1498, 95, -2334, -332, -3789, -516, -5209, -256, -6844, -253, -7500, -489, -7801, -752, -7814, -1538, -7316, -2141, -7539, -3072, -12639, -3505, -12757, 3024, -2317.52, 2852.57, -776, 2458, -1246, 4565, 104, 5707, 5551, 5589, 13539, 4456, 13546, 1296, 12354, -2989, 10069, -3895, 4612, -3865, 1616, -2744, 1736, -1344, 1475, -537, 2423, -647, 3542, -916, 4588, -873, 5512, -1381, 6557, -959, 7334, -897, 8790, -1087, 9664, -549, 10092, -579, 10374, -365, 10458, 260, 9946, 259, 9505, 87, 7897, 460, 6645, 127, 5593, 421, 5589, 1023, 6001, 1020, 6300, 965, 6906, 1062, 7315, 1218, 7720, 1140, 8119, 1457, 8400, 1287, 8640, 979, 9070, 712, 9809, 783, 10114, 929, 10119, 1436, 9974, 1509, 9993, 2483, 9613, 2498, 9344, 2383, 9045, 2411, 8765, 2585, 8457, 2507, 8195, 2709, 7956, 2696, 7579, 2925, 7239, 2911, 6890, 3100, 6674, 3311, 6458, 3601, 6444, 4105, 6450, 4558, 6293, 4724, 6059, 4715, 5468, 3968, 6132, 3137, 6444, 3022, 6697, 2778, 7014, 2650, 7331, 2241, 8250, 2089, 8944, 1832, 9625, 1506, 9095, 1510, 8723, 1502, 8482, 1705, 8096, 1838, 7715, 1732, 7343, 1553, 6787, 1576, 6461, 1641, 6084, 1636, 5845, 1466, 5596, 1378, 5225, 1375, 4913, 1482, 4399, 1633, 3889, 1642, 3535, 1500, 2837, 1925, 2272, 1925, 1868, 1717, 1888, 1185, 2117, 856, 2319, 1105, 2568, 1051, 2763, 1266, 3274, 1091, 3698, 1051, 4086, 1229, 4541, 1261, 5258, 985, 5258, 425, 4172, 583, 2686, -68, 2130, 61, 1572, -156, 1016, 124, 601, 245)
+uv = PackedVector2Array(41, 186, -514, 364, -968.897, 4.64795, -1498, 95, -1590, -486, -1443, -1153, -1963, -847, -2495, 339, -1847, 877, 12, 1440, 1255, 2528, 2894, 2528, 5279, 2356, 7658, 1628, 11689, 1103, 10894, -1588, 9365, -2708, 4741, -2628, 1616, -2744, 1475, -537, 2423, -647, 3542, -916, 4588, -873, 5512, -1381, 6557, -959, 7334, -897, 8790, -1087, 9664, -549, 10092, -579, 10374, -365, 10355, 136, 9946, 259, 9505, 87, 7897, 460, 6643, 26, 5713, 375, 4172, 583, 2686, -68, 2130, 61, 1572, -156, 1016, 124, 601, 245)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_lbhrr")
+
+[node name="Elevators" type="Node" parent="."]
+
+[node name="Elevator1" parent="Elevators" instance=ExtResource("10_vtaks")]
+position = Vector2(5245, 406)
+
+[node name="Elevator2" parent="Elevators" instance=ExtResource("10_vtaks")]
+position = Vector2(9621, 1512)
+
+[node name="Humans" type="Node" parent="."]
+
+[node name="Human1" parent="Humans" instance=ExtResource("7_u5sy4")]
+z_index = -10
+position = Vector2(-1328, -40)
+
+[node name="Human2" parent="Humans" instance=ExtResource("7_u5sy4")]
+z_index = -10
+position = Vector2(10157, 121)
+
+[node name="Human3" parent="Humans" instance=ExtResource("7_u5sy4")]
+z_index = -10
+position = Vector2(2499, 1786)
+
+[node name="Human4" parent="Humans" instance=ExtResource("7_u5sy4")]
+z_index = -10
+position = Vector2(8897, 1382)
+
+[node name="Human5" parent="Humans" instance=ExtResource("7_u5sy4")]
+z_index = -10
+position = Vector2(6182, 4582)
+
+[node name="Rocks" type="Node" parent="."]
+
+[node name="Rock1" parent="Rocks" instance=ExtResource("11_kvpfn")]
+position = Vector2(4180, 1533)
+
+[node name="Rock2" parent="Rocks" instance=ExtResource("11_kvpfn")]
+position = Vector2(4219, 1355)
+
+[node name="Rock3" parent="Rocks" instance=ExtResource("11_kvpfn")]
+position = Vector2(8071, 1714)
+
+[node name="Rock4" parent="Rocks" instance=ExtResource("11_kvpfn")]
+position = Vector2(8101, 1476)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_object")]
+position = Vector2(-6656, -344)
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("2_yqjtg")
+follow_object = NodePath("../Player")
+
+[node name="UpgradeBuilding" parent="." instance=ExtResource("8_gee14")]
+z_index = -10
+position = Vector2(-6261, -251)
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-7037, -435)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d03g5eplkac0q"]
+
+[ext_resource type="Script" uid="uid://bd7flmvafvo55" path="res://scenes/suspension/suspension.gd" id="1_xnaar"]
+
+[node name="Suspension" type="RayCast2D"]
+script = ExtResource("1_xnaar")
+
+[node name="Marker2D" type="Marker2D" parent="."]
