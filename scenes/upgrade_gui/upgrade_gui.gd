@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func _update_gui() -> void:
 	if upgrade_points <= 0:
-		info.text = "You can't buy upgrades now."
+		info.text = "You don't have any upgrade points."
 	if upgrade_points > 0:
 		info.text = "Press 1-3 to buy %d upgrade." % upgrade_points
 	if upgrade_points > 1:

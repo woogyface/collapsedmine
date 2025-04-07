@@ -138,6 +138,7 @@ shape = SubResource("RectangleShape2D_xqana")
 size = Vector2i(412, 229)
 
 [node name="UpgradeGUITexture" type="TextureRect" parent="."]
+visible = false
 offset_left = 4.0
 offset_top = -463.0
 offset_right = 416.0

@@ -14,6 +14,6 @@ func _on_respawn() -> void:
 
 
 func _respawn_player() -> void:
-	player.respawn(spawn_point.global_position)
+	player.respawn()
 	if humans.get_child_count() == 0:
 		hud.show_win_sceen()

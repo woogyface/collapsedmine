@@ -19,11 +19,12 @@ func _process(delta: float) -> void:
 	if _is_inside_shop and upgrade_gui.upgrade_points > 0:
 		if Input.is_action_just_pressed("buy_battery"):
 			upgrade_gui.buy_battery(10)
-		elif Input.is_action_just_pressed("buy_bombs"):
+		if Input.is_action_just_pressed("buy_bombs"):
 			upgrade_gui.buy_bomb(2)
-		elif Input.is_action_just_pressed("buy_flares"):
+		if Input.is_action_just_pressed("buy_flares"):
 			upgrade_gui.buy_flare(5)
-		elif Input.is_action_just_pressed("reset_points"):
+		if Input.is_action_just_pressed("reset_points", true):
+			print("fnreiwoüa")
 			upgrade_gui.reset()
 			_player.battery.reset()
 			_player.launcher.reset()
@@ -39,6 +40,7 @@ func _on_body_entered(body:Node2D) -> void:
 		upgrade_gui_texture.visible = true
 		_is_inside_shop = true
 		_player = body as Player
+		_player.allow_respawn = false
 
 
 func _on_body_exited(body:Node2D) -> void:
@@ -46,4 +48,5 @@ func _on_body_exited(body:Node2D) -> void:
 		print("You left the shop")
 		upgrade_gui_texture.visible = false
 		_is_inside_shop = false
+		_player.allow_respawn = true
 		_player = null

@@ -1,5 +1,6 @@
 class_name Player extends RigidBody2D
 
+@export var respawn_point:Node2D
 @export var max_speed:float
 
 @onready var robot_body: Sprite2D = %RobotBody
@@ -10,6 +11,8 @@ class_name Player extends RigidBody2D
 @onready var throw_position: Marker2D = $ThrowPosition
 @onready var flashlight: PointLight2D = %Flashlight
 @onready var lights: Node2D = $Lights
+
+var allow_respawn:bool = true
 
 
 func _ready() -> void:
@@ -42,6 +45,8 @@ func _physics_process(delta: float) -> void:
 		launcher.use_dynamite(throw_position.global_position, throw_position.transform.y)
 	if Input.is_action_just_pressed("throw_flare"):
 		launcher.use_flare(throw_position.global_position, throw_position.transform.y)
+	if Input.is_action_pressed("respawn"):
+		battery.use(5.0 * delta)
 
 
 func _on_battery_depleted() -> void:
@@ -82,13 +87,19 @@ func _power_wheels(torque:float, delta:float) -> void:
 	track_left.power(torque, delta)
 
 
-func respawn(position:Vector2) -> void:
-	global_position = position
-	rotation = 0
-	battery.charge_full()
-	launcher.refill_dynamite_max()
-	launcher.refill_flare_max()
-	disable_lights()
+func respawn() -> void:
+	if allow_respawn:
+		visible = false
+		await Engine.get_main_loop().process_frame
+		global_position = respawn_point.global_position
+		linear_velocity = Vector2.ZERO
+		await Engine.get_main_loop().process_frame
+		visible = true
+		rotation = 0
+		battery.charge_full()
+		launcher.refill_dynamite_max()
+		launcher.refill_flare_max()
+		disable_lights()
 
 
 func enable_lights() -> void:

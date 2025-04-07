@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://xyxh7emk4qi2"]
+[gd_scene load_steps=3 format=3 uid="uid://xyxh7emk4qi2"]
 
 [ext_resource type="Script" uid="uid://bgwkiaw60jllw" path="res://scenes/upgrade_gui/upgrade_gui.gd" id="1_2qomk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qomk"]
+bg_color = Color(0.6, 0.6, 0.6, 0.2)
 
 [node name="UpgradeGUI" type="SubViewport"]
 size = Vector2i(412, 154)
@@ -14,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qomk")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 0
